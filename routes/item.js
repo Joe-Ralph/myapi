@@ -26,8 +26,10 @@ router.post('/',(req,res)=>{
         description: req.body.description,
         volume: req.body.volume
     });
-    item.save().then(data=>{
-        res.json(data);
+    item.save().then(()=>{
+        res.json({
+            message:"Item Created"
+        });
     }).catch(err=>res.send(err));
 });
 

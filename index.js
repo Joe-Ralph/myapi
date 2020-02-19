@@ -5,21 +5,16 @@ const path = require('path');
 const item = require('./routes/item'); 
 require('dotenv/config') //.env (environment files)
 const app = express();
-
+                
 app.use(body.json());
+app.use(express.static('public'));
 
+app.use('/api/items',item);//for items route
 
-app.use('/items',item);//for items route
-
-
-app.get('/index.html',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/index.html'));
-    //console.log(path,__dirname);
-}); // index.html
-
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/index.html'));
-    //console.log(path,__dirname);
+app.get('/api',(req,res)=>{
+    res.json({
+        message: 'Welcome to the api'
+    });
 }); //root
 
 mongoose.connect(process.env.DB_CONN,{ useNewUrlParser: true,useUnifiedTopology: true },console.log('Connected to DB'));
