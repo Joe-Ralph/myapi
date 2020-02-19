@@ -33,7 +33,7 @@ router.post('/',(req,res)=>{
 
 router.delete('/:name',async (req, res) => {
     try {
-        const removed = await Item.remove({name:req.params.name});
+        const removed = await Item.deleteOne({name:req.params.name});
         res.json(removed);
     } catch (err) {
         res.send(err);
