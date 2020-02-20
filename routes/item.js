@@ -19,18 +19,20 @@ router.get('/:name',async (req,res)=>{
     }
 });
 
-router.post('/',(req,res)=>{
+router.post('/',async (req,res)=>{
     const item = new Item({
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,
         volume: req.body.volume
     });
-    item.save().then(()=>{
-        res.json({
-            message:"Item Created"
-        });
-    }).catch(err=>res.send(err));
+    try{
+        const result = await item.save();
+        res.json(result);
+    }catch(err){
+        res.send(err.message);
+    }
+    
 });
 
 router.delete('/:name',async (req, res) => {
@@ -50,8 +52,5 @@ router.patch('/:name', async (req, res) => {
         res.send(err);
     }
 });
-
-
-
 
 module.exports=router;

@@ -3,6 +3,7 @@ const body = require('body-parser');  //json parsing
 const mongoose = require('mongoose'); //db schema parsing
 const path = require('path');
 const item = require('./routes/item'); 
+const user = require('./routes/register');
 require('dotenv/config') //.env (environment files)
 const app = express();
                 
@@ -10,6 +11,7 @@ app.use(body.json());
 app.use(express.static('public'));
 
 app.use('/api/items',item);//for items route
+app.use('/register',user)
 
 app.get('/api',(req,res)=>{
     res.json({
