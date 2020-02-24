@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-
+//Editable Section begin******************************
 const Items =  mongoose.Schema({
     name:{
         type: String,
@@ -29,7 +29,7 @@ const Items =  mongoose.Schema({
 module.exports = mongoose.model("Item",Items);
 
 
-
+//Editable Section end******************************
 
 
 
