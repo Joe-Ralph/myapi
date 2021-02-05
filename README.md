@@ -1,6 +1,5 @@
 # Myapi
-A customizable Api for any purposes(V0.12). This Work is under Development wait untill version 1 for User Interface
-* * * * *
+A customizable Api for any purposes.
 
 ### Step 1:
 Create An Account at [Mongo Atlas](https://www.mongodb.com/cloud/atlas) and create a cluster
